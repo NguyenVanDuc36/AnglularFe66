@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, NgModule } from '@angular/core';
 import { ProductListComponent } from './ProductList/ProductList.component';
 
 @Component({
@@ -9,7 +9,13 @@ import { ProductListComponent } from './ProductList/ProductList.component';
             <app-productlist #tagProductList ></app-productlist>
 
             <p id="theP" class="mt-5" #tagP >Ahihi</p>
-            <button (click) = "viewDom()" class="btn btn-outline-warning" >DOM</button>
+            <hr/>
+            <p class="text-danger" >Hãy nhập tên của bạn ở đây</p>
+            <input #tenBan class="form-control"  />
+            <p #tagDucDz class="text-success" >Xin chào bạn, nếu muốn đẹp trai thì click nut bên dưới nè</p>
+            <button (click)="depTrai()" class="btn btn-outline-success" >Click vào đây để đẹp trai </button>
+            <h1  class="text-primary" >{{ten}}</h1>
+            <!-- <button (click) = "viewDom()" class="btn btn-outline-warning" >DOM</button> -->
 
             <div>
                 <h3>Thông tin sản phẩm</h3>
@@ -34,8 +40,9 @@ import { ProductListComponent } from './ProductList/ProductList.component';
 
 export class PropsComponent implements OnInit {
     constructor() { }
-
+    ten:string = '';
     @ViewChild('tagP') tagP!:ElementRef;
+    @ViewChild('tenBan') tenBan!:ElementRef;
     @ViewChild('tagProductList') tagProductList!:ProductListComponent;
     addProduct(id:string,name:string,price:string){
         let product:Product = {id:Number(id),name:name, price:Number(price),img:`https://picsum.photos/id/${id}200/200`}
@@ -43,6 +50,10 @@ export class PropsComponent implements OnInit {
     }
     viewDom(){
         console.log(this.tagProductList);
+    }
+
+    depTrai(){
+        this.ten = 'Xin chào '+ this.tenBan.nativeElement.value + ', bạn đã biến thành người đẹp trai';
     }
     ngOnInit() { }
 }

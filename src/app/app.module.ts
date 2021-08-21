@@ -14,6 +14,7 @@ import { DemoComponent } from './demo/demo.component';
 import { DirectiveModule } from './Directives/Directive.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { PropsModule } from './Props/Props.module';
+import { QuanTriGheModule } from './quan-tri-ghe/quan-tri-ghe.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PropsModule } from './Props/Props.module';
     RegisterModule,
     DirectiveModule,
     NoopAnimationsModule,
-    PropsModule
+    PropsModule,
+    QuanTriGheModule
   ],
   providers: [],
   bootstrap: [AppComponent]
